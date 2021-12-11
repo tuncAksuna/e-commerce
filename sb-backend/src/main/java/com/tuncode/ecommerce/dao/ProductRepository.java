@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin(value = "http://localhost:4200")
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    // search/findByCategoryId?id=..
-    Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+  // search/findByCategoryId?id=..
+  Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
 
-    // SELECT * FROM Product WHERE s.name LIKE CONCAT ('%',:name,'%')
-    // search/findByNameContaining?name=..
-    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
+  // http://localhost:8080/api/products/search/findByNameContaining?name=...
+  Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
+
 }
+
